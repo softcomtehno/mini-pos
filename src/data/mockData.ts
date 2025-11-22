@@ -193,7 +193,6 @@ export const mockClients: Client[] = [
     notes: 'VIP клиент',
   },
 ];
-
 export const mockReceipts: Receipt[] = [
   {
     id: '1001',
@@ -208,7 +207,7 @@ export const mockReceipts: Receipt[] = [
     discount: 0,
     paymentType: 'cash',
     status: 'paid',
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toLocaleString(), // сегодня
   },
   {
     id: '1002',
@@ -225,9 +224,55 @@ export const mockReceipts: Receipt[] = [
     discount: 10,
     paymentType: 'qr',
     status: 'paid',
-    createdAt: new Date(Date.now() - 3600000).toISOString(),
+    createdAt: new Date(Date.now() - 24 * 3600 * 1000).toLocaleString(), // вчера
+  },
+  {
+    id: '1003',
+    pointId: '2',
+    cashierId: '4',
+    cashierName: 'Гульнура Абдрахманова',
+    items: [
+      { id: '1', productId: '3', productName: 'Сыр 250г', qty: 1, price: 120 },
+      { id: '2', productId: '7', productName: 'Йогурт', qty: 2, price: 45 },
+    ],
+    total: 210,
+    discount: 0,
+    paymentType: 'cash',
+    status: 'paid',
+    createdAt: new Date(Date.now() - 2 * 24 * 3600 * 1000).toLocaleString(), // 2 дня назад
+  },
+  {
+    id: '1004',
+    pointId: '2',
+    cashierId: '4',
+    cashierName: 'Гульнура Абдрахманова',
+    items: [
+      { id: '1', productId: '4', productName: 'Масло сливочное', qty: 1, price: 150 },
+      { id: '2', productId: '6', productName: 'Кофе молотый', qty: 2, price: 200 },
+    ],
+    total: 550,
+    discount: 50,
+    paymentType: 'qr',
+    status: 'paid',
+    createdAt: new Date(Date.now() - 5 * 24 * 3600 * 1000).toLocaleString(), // 5 дней назад
+  },
+  {
+    id: '1005',
+    pointId: '1',
+    cashierId: '2',
+    cashierName: 'Бекет Асанов',
+    items: [
+      { id: '1', productId: '9', productName: 'Сок апельсиновый', qty: 3, price: 90 },
+    ],
+    total: 270,
+    discount: 0,
+    paymentType: 'cash',
+    status: 'paid',
+    createdAt: new Date(Date.now() - 10 * 24 * 3600 * 1000).toLocaleString(), // 10 дней назад
   },
 ];
+
+
 
 export const mockExpenses: Expense[] = [
   {

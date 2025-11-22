@@ -33,7 +33,7 @@ export function AddProducts() {
 
       html5QrcodeRef.current.start(
         { facingMode: 'environment' },
-        { fps: 20, qrbox: 300 },
+        { fps: 30, qrbox: 420 },
         (decodedText) => {
           html5QrcodeRef.current?.stop();
           setIsScanning(false);
@@ -48,7 +48,7 @@ export function AddProducts() {
           }
         },
         (error) => {
-          // ошибки сканирования можно игнорировать
+
         }
       );
     }, 0);
@@ -102,7 +102,7 @@ export function AddProducts() {
           <div
             ref={scannerRef}
             id={SCANNER_ID}
-            style={{ background: 'white', borderRadius: '8px' }}
+            style={{ background: 'white' }}
           />
           <button
             onClick={resetScanner}
